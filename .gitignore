@@ -1,0 +1,13 @@
+# Claves y configuración
+.env
+.env.local
+
+# Node modules
+node_modules/
+
+# Archivos de logs
+*.log
+
+# Build y temporales
+dist/
+build/
