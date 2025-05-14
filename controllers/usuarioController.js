@@ -19,7 +19,6 @@ exports.obtenerUsuario = async (req, res) => {
     try {
         const { auth0Id } = req.params;
 
-        // Validación rápida (por si no llega el param)
         if (!auth0Id) {
             return res.status(400).json({ msg: 'Falta el parámetro auth0Id' });
         }

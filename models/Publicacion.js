@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PublicacionSchema = mongoose.Schema({
+const PostSchema = mongoose.Schema({
     userId: {
         type: String,
         required: true
@@ -44,7 +44,16 @@ const PublicacionSchema = mongoose.Schema({
     dateAdded: {
         type: Date,
         default: Date.now()
+    },
+    // 🔽 Promotion fields
+    isPromoted: {
+        type: Boolean,
+        default: false
+    },
+    promotedUntil: {
+        type: Date,
+        default: null
     }
-})
+});
 
-module.exports = mongoose.model('Publicacion', PublicacionSchema);
+module.exports = mongoose.model('Post', PostSchema);
