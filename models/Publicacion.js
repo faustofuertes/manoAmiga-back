@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PostSchema = mongoose.Schema({
+const PublicacionSchema = mongoose.Schema({
     userId: {
         type: String,
         required: true
@@ -56,4 +56,4 @@ const PostSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Post', PostSchema);
+module.exports = mongoose.model('Publicacion', PublicacionSchema);
