@@ -13,6 +13,7 @@ app.use(express.json());
 
 app.use('/api/usuarios', require('./routes/usuario'));
 app.use('/api/publicaciones', require('./routes/publicaciones'));
+app.use('/api/reviews', require('./routes/review'));
 
 app.listen(4000, () => {
     console.log('El servidor esta corriendo perfectamente.')

@@ -1,18 +1,27 @@
 const Publicacion = require('../models/Publicacion');
 
-//crea una publicacion nueva
+// Crea una publicación nueva
 exports.crearPublicacion = async (req, res) => {
     try {
-        let publicacion;
+        const { userId, job } = req.body;
 
-        publicacion = new Publicacion(req.body);
+        // Verificar si ya existe una publicación del mismo usuario para el mismo oficio
+        const existe = await Publicacion.findOne({ userId, job });
 
+        if (existe) {
+            return res.status(400).json({
+                msg: 'Ya existe una publicación para este oficio por este usuario.'
+            });
+        }
+
+        // Crear nueva publicación
+        const publicacion = new Publicacion(req.body);
         await publicacion.save();
 
         res.send(publicacion);
     } catch (error) {
         console.log(error);
-        res.status(500).send('Hubo un error creando la publicacion (BACK)');
+        res.status(500).send('Hubo un error creando la publicación (BACK)');
     }
 }
 
